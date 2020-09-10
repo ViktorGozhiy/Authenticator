@@ -1,5 +1,6 @@
 package com.github.viktorgozhiy.authenticator.entity;
 
+import com.github.viktorgozhiy.authenticator.dto.KeyDTO;
 import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.*;
@@ -31,6 +32,23 @@ public class Key {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Key() {}
+
+    public Key(KeyDTO keyDTO, User user) {
+        this.label = keyDTO.getLabel();
+        this.secretKey = keyDTO.getSecretKey();
+        this.timeout = keyDTO.getTimeout();
+        this.algorithm = keyDTO.getAlgorithm();
+        this.user = user;
+    }
+
+    public void update(KeyDTO keyDTO) {
+        this.label = keyDTO.getLabel();
+        this.secretKey = keyDTO.getSecretKey();
+        this.timeout = keyDTO.getTimeout();
+        this.algorithm = keyDTO.getAlgorithm();
+    }
 
     public long getId() {
         return id;

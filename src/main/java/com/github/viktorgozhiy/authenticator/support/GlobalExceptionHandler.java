@@ -24,8 +24,6 @@ public class GlobalExceptionHandler {
     @Autowired
     private ErrorResponseFactory errorResponseFactory;
 
-    //TODO ДОбавить перехват исключений
-
     @ExceptionHandler
     @ResponseBody
     public ResponseEntity<ErrorResponse> handle(MethodArgumentNotValidException ex) {

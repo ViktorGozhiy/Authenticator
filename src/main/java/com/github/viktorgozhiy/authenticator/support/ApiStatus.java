@@ -10,4 +10,5 @@ public abstract class ApiStatus {
     public static final int USER_NOT_ACCEPTED = 5007;
     public static final int FIELD_VALIDATION_ERROR = 5008;
     public static final int REQUEST_NOT_READABLE = 5009;
+    public static final int KEY_NOT_FOUND = 5010;
 }
